@@ -4,6 +4,8 @@
 # Maka dibuat fungsi-fungsi ini untuk membantu
 
 # Membuat fungsi len() secara manual
+
+
 def length_manual(list):
     # KAMUS LOKAL
     # list : list
@@ -76,3 +78,20 @@ def split_manual(list_awal, pemisah):
 # (split_manual('abcd;efgh;ijkl', ';'))
 # 'abcd;efgh;ijkl' sebagai list_awal dan ' ; ' sebagai pemisah
 # -> ['abcd', 'efgh', 'ijkl']
+
+def remove_manual(list_awal, index):
+    list_baru = []
+    for i in range(length_manual(list_awal)):
+        if i != index:
+            list_baru = append_manual(list_baru,list_awal[i])
+    return list_baru
+# ------ CONTOH PENGGUNAAN --------
+# print(remove([5,4,3,2,1],2))
+
+# Membuat fungsi max
+def max_length(data,kolom):
+    max = length_manual(data[0][kolom])
+    for i in range(length_manual(data)):
+        if length_manual(data[i][kolom])> max:
+            max = length_manual(data[i][kolom])
+    return max
