@@ -33,4 +33,4 @@ def kerangajaib():
     else: print("Tidak mungkin.")
 
 # ---- CONTOH PENGGUNAAN -----
-kerangajaib()
+# kerangajaib()

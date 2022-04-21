@@ -120,4 +120,4 @@ X Pemain 2
         print(f'\nPemain "{pemenang}" menang')
     else : print("Yah tidak ada pemenang :(")
 
-tictactoe()
+# tictactoe()

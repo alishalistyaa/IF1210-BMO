@@ -1,19 +1,13 @@
 # 13 April 2022
 # Catatan:
 
-from A_CSVParser import *
-from A_DataFunctions import max_length
 from A_Functions import *
 
-def melihat_gameku(user_id):
+def melihat_gameku(user_id, data_riwayat, data_game):
     # KAMUS LOKAL
     # data_riwayat, data_game : matrix hasil parsing
     # properti_game : array
     # data_gameku : matrix hasil
-    
-    # Mengimport CSV menjadi matrix
-    data_riwayat = CSV_Parser('database/riwayat.csv')
-    data_game = CSV_Parser('database/game.csv')
 
     # Inisialisasi matrix dan array kosong
     data_gameku = []
@@ -31,7 +25,7 @@ def melihat_gameku(user_id):
 
                     # Jika ditemukan ID Game, append properti dari game tersebut:
                     # Game ID, Nama, Harga, User_id, Tahun_beli
-                    for k in range(length_manual(data_game)):
+                    for k in range(length_manual(data_game[j])):
                         properti_game = append_manual(properti_game, data_game[j][k])
                     # Mengappend properti tersebut ke list kosong
                     data_gameku = append_manual(data_gameku, properti_game)
@@ -62,4 +56,4 @@ def melihat_gameku(user_id):
     return(data_gameku)
 
 # ---- CONTOH PENGGUNAAN ----
-# (melihat_gameku('1')
+# melihat_gameku(user_id, data.riwayat, data.game)

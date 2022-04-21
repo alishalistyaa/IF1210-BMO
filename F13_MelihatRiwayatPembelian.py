@@ -4,15 +4,11 @@
 
 # Mengimport Fungsi dari Direktori Lain
 from A_Functions import *
-from A_CSVParser import *
 
 # Definisi Fungsi lihat_riwayat untuk Melihat Riwayat Pembelian
-def lihat_riwayat():
+def lihat_riwayat(data_riwayat):
     # Menginput user id user yang akan melihat riwayat pembelian
     user_id = str(input('Masukan user id: '))
-
-    # Membaca riwayat.csv dan menyimpan dalam sebuah variabel
-    data_riwayat = CSV_Parser('riwayat.csv')
 
     # Panjang data
     panjang_riwayat = length_manual(data_riwayat)
@@ -39,4 +35,4 @@ def lihat_riwayat():
         print('Maaf, kamu tidak ada riwayat pembelian game. Ketik perintah beli_game untuk membeli.')
 
 # Mengeluarkan Ouput Fungsi lihat_riwayat
-lihat_riwayat()
+#lihat_riwayat(data.riwayat)

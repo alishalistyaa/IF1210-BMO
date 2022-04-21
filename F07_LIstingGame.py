@@ -3,12 +3,9 @@
 
 # Mengimport Fungsi dari direktori lain
 from A_CSVParser import *
-from A_DataFunctions import max_length
 from A_Functions import *
 
 
-array = CSV_Parser("database/game.csv")
-arrayboongan = [['id', 'nama', 'kategori', 'tahun_rilis', 'harga', 'stok'], ['G001', 'Tetris', 'Puzzle', '1984', '170000', '4'], ['G002', 'Mario Kart Wii', 'Race', '1985', '48000', '5'], ['G003', 'Minecraft', 'Adventure', '2011', '176000', '6'], ['G004', 'Wii ', 'Sports', '2006', '83000', '7'], ['G005', 'Pubg', 'Battle', '2017', '5000', '8'], ['G006', 'Pokemon', 'Adventure', '1996', '47000', '11'], ['G007', 'Skyrim', 'Race', '2011', '30000', '13'], ['G008', 'Duck Hunt', 'Adventure', '1984', '28000', '15'], ['G009', 'Terraria', 'Puzzle', '2011', '27000', '17'], ['G010', 'Fifa 18', 'Sports', '2017', '24000', '18'], ['G011', 'Sonic', 'Race', '1991', '2400', '91'], ['G012', 'Kinect', 'Adventure', '2010', '27000', '19'], ['G013', 'Bonderlands', 'Adventure', '2012', '22000', '45'], ['G014', 'Frogger', 'Puzzle', '1981', '21000', '34'], ['G015', 'Lemmings', 'Battle', '1991', '20000', '25'], ['G016', 'Brain Age', 'Adventure', '2005', '19000', '36'], ['G017', 'The Sims ', 'Sports', '2000', '16000', '47'], ['G018', 'Mobile Legends', 'Battle', '2015', '13000', '54'], ['G019', 'Roblox', 'Puzzle', '2016', '12000', '67'], ['G020', 'Candy Crush', 'Puzzle', '2009', '28000', '49'], ['G021', 'Pou', 'Adventure', '2005', '50000', '43'], ['G022', 'Clash Of Clans', 'Battle', '2009', '10000', '46'], ['G023', 'Hay Day', 'Adventure', '2008', '21000', '45'], ['G024', 'Angry Bird', 'Sports', '2007', '9000', '44'], ['G025', 'Ball Pool', 'Sports', '2011', '38000', '82'], ['G026', 'Plants vs Zombie', 'Battle', '2010', '29000', '73'], ['G027', 'Real Racing', 'Race', '2019', '10100', '46'], ['G028', 'Farm Heroes', 'Puzzle', '2013', '31200', '52'], ['G029', 'Shadow Fight', 'Battle', '1997', '21450', '37'], ['G030', 'Looney Tunes Dash', 'Race', '2000', '50101', '51'], ['G031', 'Cut The Rope', 'Puzzle', '2003', '21800', '30'], ['G032', 'Death Rally', 'Race', '2014', '76400', '21'], ['G033', 'Naughty Kitties', 'Battle', '2018', '26500', '22'], ['G034', 'Farm Clan', 'Adventure', '2009', '53000', '26'], ['G035', 'Ragnarok', 'Battle', '2005', '10300', '41'], ['G036', 'Donkey Kong', 'Race', '1981', '8000', '67'], ['G037', 'Galaga', 'Adventure', '1981', '36000', '98'], ['G038', 'Pac Man', 'Adventure', '1982', '6500', '48'], ['G039', 'Contra', 'Battle', '1987', '8200', '86'], ['G040', 'Zelda', 'Adventure', '1987', '4700', '35'], ['G041', 'Mega Man', 'Battle', '1990', '3900', '89'], ['G042', 'Iechuks', 'Adventure', '1991', '4900', '94'], ['G043', 'Street Fighter', 'Battle', '1991', '5020', '15'], ['G044', 'Doom', 'Battle', '1993', '4800', '19'], ['G045', 'Tie Fighter', 'Battle', '1994', '33000', '58'], ['G046', 'Super Metroid', 'Adventure', '1994', '2400', '4'], ['G047', 'X Com', 'Adventure', '1994', '36490', '75'], ['G048', 'Chrono Trigger', 'Adventure', '1995', '19180', '18'], ['G049', 'Warcraft', 'Battle', '1995', '10980', '97'], ['G050', 'Undertale', 'Adventure', '2015', '12400', '91']]
 
 # ALGORITMA
 
@@ -111,10 +108,10 @@ def bandingkan_huruf(array, kolom_pilihan,skema):
     return array
 # ======================================================
     
-def list_game_toko(array):
+def list_game_toko(data_game):
     # Menginput jenis skema
     skema = str(input("Masukkan skema: ")).lower()
-    array_tanpa_header = remove_manual(array,0)
+    array_tanpa_header = remove_manual(data_game,0)
 
     # Menentukan kolom mana yang disort
     if 'id' in skema:
@@ -143,7 +140,7 @@ def list_game_toko(array):
         return(print("Skema sorting tidak valid!"))
         
 
-    kolom_pilihan = remove_manual(pilih_kolom(array, nama_kategori),0)
+    kolom_pilihan = remove_manual(pilih_kolom(data_game, nama_kategori),0)
 
     if tipe_data == "angka":
         sorted_array = bandingkan_angka(array_tanpa_header, kolom_pilihan,skema)
@@ -169,7 +166,7 @@ def list_game_toko(array):
     if max_harga < (length_manual('HARGA')):
         max_harga = 5
     
-    max_nomor = (length_manual(array) % 10) + 1
+    max_nomor = (length_manual(data_game) % 10) + 1
     
     
 
@@ -182,9 +179,10 @@ def list_game_toko(array):
         spasi_nomor = ' '*(max_nomor-length_manual(str(i+1)))
         print(f"{spasi_nomor}{i+1}. {sorted_array[i][0]} | {sorted_array[i][1]}{spasi_nama} | {sorted_array[i][2]}{spasi_kategori} | {sorted_array[i][3]}{' '* 7} | {sorted_array[i][4]}{spasi_harga} | {sorted_array[i][5]}")
     
-    return sorted_array
+    return # sorted_array
 
-list_game_toko(array)
+# ------- CONTOH PENGGUNAAN -------
+# list_game_toko(data.game)
 # print(remove_manual(pilih_kolom(array, 'nama'),0))
 
 # print(bandingkan_huruf([['G001', 'A', 'A', '2000', '15', '1'], ['G004', 'D', 'D', '200033', '3', '20'], ['G003', 'C', 'C', '2000', '2', '10'], ['G002', 'B', 'B', '2000', '1', '5']], ['A','D','C','B'],'nama+'))

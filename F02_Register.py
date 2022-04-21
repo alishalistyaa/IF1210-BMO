@@ -14,7 +14,7 @@ def is_admin(role):
     """ Fungsi yang mengembalikan true apabila role user adalah admin, false jika bukan """
 
     # ALGORITMA
-    if role == "admin":
+    if role == "Admin":
         return True
     print("Maaf, anda tidak memiliki izin untuk menjalankan perintah berikut. Mintalah ke administrator untuk melakukan hal tersebut.")
     return False
@@ -24,7 +24,7 @@ def is_user(role):
     """ Fungsi yang mengembalikan true apabila role user adalah user, false jika bukan """
 
     # ALGORITMA
-    if role == "user":
+    if role == "User":
         return True
     print("Maaf, anda harus menjadi user untuk melakukan hal tersebut.")
     return False
@@ -46,39 +46,52 @@ def check_valid_username(username: str):
         if not (97 <= user <= 122 or 65 <= user <= 90 or 48 <= user <= 57 or char == "_" or char == "-"):
             return False
     return True
-def is_username_available(username: str):
+
+def is_username_available(username: str, data_user):
     """ Fungsi yang mengembalikan true apabila username yang dimasukkan tidak ada, false jika sudah ada """
 
     # KAMUS LOKAL
     # users: Data
     # user: BarisData
-    user = CSV_Parser('fileuser.csv')
-    a = length_manual(user)
+    a = length_manual(data_user)
     for i in range(a):
         for j in range(6):
-            if username == user[i][1]:
+            if username == data_user[i][1]:
                 return True
     return False
     # ALGORITMA
     
             
-def register():
+def register(data_user):
     nama = input("Masukan nama: ")
     
     cek = False
     while cek == False:
         username = input("Masukan username: ")
-        if not (is_username_available(username)) and check_valid_username(username) :
+        if not (is_username_available(username, 'database')) and check_valid_username(username) :
             password = input("Masukan password: ")
             print('Username {} telah berhasil register ke dalam "Binomo"'.format(username))
             cek = True
-        elif (is_username_available(username)):
+        elif (is_username_available(username,'database')):
             print('Usermane {} sudah terpakai, silahkan menggunakan username lain')
             cek == False
         else:
             print('Format Username Salah.')
             cek == False
 
-aksi = input('')
-if aksi == 'register':
-    register()
+    # Membuat baris untuk diappend ke dalam user.csv
+
+    # Inisialisasi id, role, dan saldo
+    id_user = str((length_manual(data_user)))
+    role = 'User'
+    saldo = str(0)
+
+    # Baris data user
+    data = [id_user, username, nama, password, role, saldo]
+    # Memasukkan data ke array csv
+    data_user = append_manual(data_user, data)
+
+    return(data_user)
+
+# ------- CONTOH PENGGUNAAN -------
+# register('data.user')

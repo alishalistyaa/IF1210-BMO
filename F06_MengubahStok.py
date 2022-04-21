@@ -5,7 +5,7 @@
 from A_CSVParser import *
 from A_Functions import *
 
-def ubah_stok():
+def ubah_stok(data_game):
     # KAMUS LOKAL
     # data_game                : matrix
     # panjang_data             : int
@@ -17,10 +17,7 @@ def ubah_stok():
     # Input masukan
     id_game = str(input("Masukkan ID game: "))
 
-    # Membaca file CSV
-    # Data File CSV : IDGame, Nama, Kategori, Tahun Rilis, Harga, Stok
-    data_game = CSV_Parser('database/game.csv')
-    # Membaca panjang data CSV
+    # Membaca panjang data 
     panjang_data = length_manual(data_game)
 
     for i in range(panjang_data):
@@ -54,5 +51,5 @@ def ubah_stok():
     
     return(data_game)
 
-# ------ CONTOH PENGGUNAAN --------
-ubah_stok()
+# ------- CONTOH PENGGUNAAN -------
+# print(ubah_stok('database'))

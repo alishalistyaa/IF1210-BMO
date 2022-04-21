@@ -20,4 +20,4 @@ def CSV_Parser(nama_file_csv):
     return(matriks_baru)
             
 # ------ CONTOH PENGGUNAAN --------
-# print(CSV_Parser('database/datatest.csv'))
+# print(CSV_Parser('database/user.csv'))

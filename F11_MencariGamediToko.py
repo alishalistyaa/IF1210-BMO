@@ -4,13 +4,10 @@
 
 # Mengimport Fungsi dari Direktori Lain
 from A_Functions import *
-from A_CSVParser import *
 
 # Mendefinisikan Fungsi search_game_at_store()
-def search_game_at_store():
+def search_game_at_store(data_game):
 
-    # Membaca File game.csv dan Menyimpannya dalam Variabel data_game
-    data_game = CSV_Parser('game.csv')
     # Menentukan Panjang Variabel panjang_game
     panjang_game = length_manual(data_game)
 
@@ -77,4 +74,4 @@ def search_game_at_store():
         print('Tidak ada game pada toko yang memenuhi kriteria')
 
 # Memanggil Fungsi search_game_at_store()
-search_game_at_store()
+# search_game_at_store('database')

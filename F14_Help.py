@@ -2,16 +2,14 @@
 # Catatan : Prosedur ini adalah prosedur untuk memberikan panduan penggunaan sistem.
 
 from A_Functions import *
-from A_CSVParser import *
 
-arr = CSV_Parser('database/user.csv') # Mengakses database yang dibutuhkan
-
-def help (user_id, arr): 
+def help (user_id, data_user): 
     # Mencari Role berdasarkan user_id
-    for i in range (length_manual(arr)): 
-        if arr[i][0] == user_id:
-            role = arr[i][4]
+    for i in range (length_manual(data_user)): 
+        if data_user[i][0] == user_id:
+            role = data_user[i][4]
             break
+        else: role = ''
 
     if role == "Admin" : #Jika role adalah Admin, maka akan ditampilkan help yang cukup jelas dengan akses yang bersesuaian dengan admin
         print("""============ HELP ============

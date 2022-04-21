@@ -4,11 +4,9 @@
 
 # Mengimport Fungsi dari Direktori Lain
 from A_Functions import *
-from A_CSVParser import *
 
 # Definisi Fungsi id_genre dengan Parameter variabel id game input
-def id_genre(id_game_input):
-    data_game = CSV_Parser('game.csv')
+def id_genre(id_game_input, data_game):
     panjang_game = length_manual(data_game)
     for j in range(panjang_game):
         if data_game[j][0] == id_game_input: 
@@ -16,8 +14,7 @@ def id_genre(id_game_input):
     return genre_game
 
 # Definisi Fungsi id_tahun dengan Paramater variabel id game input
-def id_tahun(id_game_input):
-    data_game = CSV_Parser('game.csv')
+def id_tahun(id_game_input, data_game):
     panjang_game = length_manual(data_game)
     for j in range(panjang_game):
         if data_game[j][0] == id_game_input: 
@@ -25,18 +22,16 @@ def id_tahun(id_game_input):
     return tahun_game
 
 # Definisi Fungsi cek_id_game_dan_tahun_rilis()
-def cek_id_game_dan_tahun_rilis():
+def cek_id_game_dan_tahun_rilis(data_game, data_riwayat):
 
     # Input id game dan tahun game
     id_game_input = str(input('Masukkan ID Game: '))
     tahun_game_input = str(input('Masukkan Tahun Rilis Game: '))
 
     # CSV RIWAYAT
-    data_riwayat = CSV_Parser('riwayat.csv')
     panjang_riwayat = length_manual(data_riwayat)
 
     # CSV GAME
-    data_game = CSV_Parser('game.csv')
     panjang_game = length_manual(data_game)
 
     # Mengeluarkan Output Berupa Kalimat
@@ -56,8 +51,8 @@ def cek_id_game_dan_tahun_rilis():
                 id_game = data_riwayat[j][0]
                 nama_game = data_riwayat[j][1]
                 harga_game = data_riwayat[j][2]
-                genre_game = id_genre(id_game_input)
-                tahun_game = id_tahun(id_game_input)
+                genre_game = id_genre(id_game_input, data_game)
+                tahun_game = id_tahun(id_game_input, data_game)
 
                 print(nomor, f'. {id_game} | {nama_game} | {harga_game} | {genre_game} | {tahun_game}')
                 nomor += 1
@@ -83,16 +78,16 @@ def cek_id_game_dan_tahun_rilis():
     if id_game_input != '' and tahun_game_input != '':
         for i in range(panjang_riwayat):
             id_game = data_riwayat[i][0]
+            nama_game = data_riwayat[i][1]
+            harga_game = data_riwayat[i][2]
             for j in range(panjang_game):
-                tahun_game = data_game[j][3]
-                if id_game_input == id_game and tahun_game_input == tahun_game:
-                    nama_game = data_riwayat[i][1]
-                    harga_game = data_riwayat[i][2]
-                    genre_game = data_game[j][2]
-                    print(nomor, f'. {id_game} | {nama_game} | {harga_game} | {genre_game} | {tahun_game}')
-                    nomor += 1
-                    validasi = True
-                    break
+                if id_game_input == id_game and id_game == data_game[j][0]:
+                    if data_game[j][3] == tahun_game_input:
+                        genre_game = data_game[j][2]
+                        print(nomor, f'. {id_game} | {nama_game} | {harga_game} | {genre_game} | {data_game[j][3]}')
+                        nomor += 1
+                        validasi = True
+                        break
 
     # Jika input tahun rilis kosong dan input id game kosong
     if id_game_input == '' and tahun_game_input == '':
@@ -113,4 +108,4 @@ def cek_id_game_dan_tahun_rilis():
         print('Tidak ada game pada inventory-mu yang memenuhi kriteria')
 
 # Memanggil Fungsi cek_id_game_dan_tahun_rilis()
-cek_id_game_dan_tahun_rilis()
+# cek_id_game_dan_tahun_rilis(data.game, data.riwayat)

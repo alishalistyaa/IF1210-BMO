@@ -7,31 +7,38 @@ from A_Functions import *
 from F02_Register import *
 
 
-def login():
+def login(data_user):
+    # KAMUS LOKAL
+    # data_user : array
+    # username, password : str
+    # a: int
+
+    # ALGORITMA UTAMA
+    # Inisialisasi input
     username = input("Masukan username: ")
     password = input("Masukan password: ")
-    user = CSV_Parser('fileuser.csv')
-    a = length_manual(user)
+    # Parsing CSV
+
+    # Looping untuk username
+    a = length_manual(data_user)
     for i in range(a):
         for j in range(6):
-            if username == user[i][1]:
+            if username == data_user[i][1]:
                 x = i
-    
-    if is_username_available(username):
-        if password== user[x][3]:
-            nama = user[x][2]
+    # Mengecek apakah username cocok dengan password
+    if is_username_available(username, data_user):
+        if password== data_user[x][3]:
+            nama = data_user[x][2]
+            id_user = data_user[x][0]
             print("Halo {}! Selamat datang di “Binomo”.".format(nama))
 
         else:
-            print("Password atau username salah atau tidak ditemukan.")
+            return(print("Password atau username salah atau tidak ditemukan."))
     else:
-        print("Password atau username salah atau tidak ditemukan.")
-
-cek = False
-aksi = input("")
-while cek == False:
-    if aksi == 'login':
-        login()
-        cek = True
-    else:
-        print("Maaf, anda harus login terlebih dahulu untuk mengirim perintah selain “login”")
+        return(print("Password atau username salah atau tidak ditemukan."))
+    
+    # jika username cocok, mengembalikan user_id
+    return(id_user)
+    
+# ------- CONTOH PENGGUNAAN -------
+# login(data.user)
