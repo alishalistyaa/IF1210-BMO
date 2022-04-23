@@ -27,6 +27,9 @@ from F17_Exit import *
 # Import data
 import A_Data as data
 
+# Import pemanis
+from A_Pemanis import *
+
 # ========== MEMBUAT FUNGSI UTAMA ==============
 def main():
     global data
@@ -34,11 +37,12 @@ def main():
     if not load():
         return
     else:
+        animatedbmo()
         loggedin = False
 
         print("Jangan lupa! BNMO akan selalu membantumu dengan mengetik 'help'!")
         while not loggedin:
-            perintah = str(input(">>> ")).lower()
+            perintah = str(input("\n>>> ")).lower()
             if perintah == 'help':
                 help(0, data.user)
             elif perintah =='login':
@@ -63,6 +67,7 @@ def main():
             if perintah == "help":
                 help(id_user, data.user)
             elif perintah == "list_game_toko":
+                loading()
                 list_game_toko(data.game)
             elif perintah == "login":
                 id_user = login(data.user)
