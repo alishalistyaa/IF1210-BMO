@@ -5,6 +5,7 @@
 
 # Mengimport library
 from F16_Save import *
+from A_Pemanis import *
 
 def exit(data_game, data_kepemilikan, data_riwayat, data_user):
     validasi = False
@@ -12,9 +13,11 @@ def exit(data_game, data_kepemilikan, data_riwayat, data_user):
     while validasi == False:
         apakah_simpan = str(input("Apakah Anda mau melakukan penyimpanan file yang sudah diubah? (y/n) "))
         if apakah_simpan == 'Y' or apakah_simpan =='y':
+            animatedbmo_end(folder_end)
             return(save(data_game, data_kepemilikan, data_riwayat, data_user))
         elif apakah_simpan =='N' or apakah_simpan =='n':
-            return(print("Keluar file tanpa menyimpan..."))
+            animatedbmo_end(folder_end)
+            return(print("Keluar file tanpa menyimpan!"))
         else: validasi = False
 
 # ------ CONTOH PENGGUNAAN -------

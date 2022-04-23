@@ -32,7 +32,16 @@ def help (user_id, data_user):
 |     |                |       setelah dilakukan perubahan          |
 | 11. | exit           |  Keluar dari aplikasi                      |
 ┗-------------------------------------------------------------------┘
-✩ Mohon untuk mengetikkan command, dan bukan nomor, ya! ✩ """)
+✩ Mohon untuk mengetikkan command, dan bukan nomor, ya! ✩ 
+
+
+|￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣|
+   psstt.. Coba 'minigames'!
+|＿＿＿＿＿＿＿＿＿＿＿＿_____＿＿|
+          \ (•◡•) /
+          \       /
+                       
+                       """)
 
     elif role == "User": #Jika role adalah User, maka akan ditampilkan help yang cukup jelas dengan akses yang bersesuaian dengan User
         print ("""
@@ -54,7 +63,17 @@ def help (user_id, data_user):
 |     |                |       setelah dilakukan perubahan          |
 | 10. | exit           |  Keluar dari aplikasi                      |
 ┗-------------------------------------------------------------------┘ 
-✩ Mohon untuk mengetikkan command, dan bukan nomor, ya! ✩ """)
+✩ Mohon untuk mengetikkan command, dan bukan nomor, ya! ✩ 
+
+
+|￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣|
+   psstt.. Coba 'minigames'!
+|＿＿＿＿＿＿＿＿＿＿＿＿_____＿＿|
+          \ (•◡•) /
+          \       /
+          
+          """)
+
 
     else :
         print ("""

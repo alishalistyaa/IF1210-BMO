@@ -174,7 +174,6 @@ def list_game_toko(data_game):
     
     max_nomor = (length_manual(data_game) % 10) + 1
     
-    
 
     print(f"   ID   | NAMA{' '*(max_nama-4)} | KATEGORI{' '*(max_kategori-8)} | TAHUN RILIS | HARGA{' '*(max_harga-5)} | STOK")
     print('----------------------------------------------------------')

@@ -37,7 +37,7 @@ def main():
     if not load():
         return
     else:
-        animatedbmo()
+        animatedbmo_start(folder_start)
         loggedin = False
 
         print("Jangan lupa! BNMO akan selalu membantumu dengan mengetik 'help'!")
@@ -57,24 +57,35 @@ def main():
         while loggedin:
             for i in range(length_manual(data.user)):
                 if data.user[i][0] == id_user:
+                    username = data.user[i][1]
                     nama_user = data.user[i][2]
                     role_user = data.user[i][4]
+                    
 
-            print(f"Mau melakukan apa, {nama_user}?")
+            print(f"\nApa yang akan kita lakukan, {nama_user}?")
             perintah = str(input(">>> ")).lower()
             
             # Fitur yang bisa dilakukan kedua role
             if perintah == "help":
                 help(id_user, data.user)
-            elif perintah == "list_game_toko":
+            elif perintah == "urutkan_game":
                 loading()
                 list_game_toko(data.game)
             elif perintah == "login":
                 id_user = login(data.user)
-            elif perintah == "search_game_at_store":
+            elif perintah == "cari_game":
                 search_game_at_store(data.game)            
             elif perintah == "save":
                 save(data.game, data.kepemilikan, data.riwayat, data.user)
+            elif perintah == "minigames":
+                print('''
+                1 ) 'kerangajaib'
+                Tanyakan pertanyaanmu ke KerangAjaib!
+
+                2 ) 'tictactoe'
+                Bermain tictactoe,, minum coklat panas,, menyusun puzzle,,
+
+                ''')
             elif perintah == "kerangajaib":
                 kerangajaib()
             elif perintah == "tictactoe":
@@ -96,21 +107,24 @@ def main():
                     data.game = ubah_stok(data.game)
                 elif perintah == "topup":
                     data.user = topup_saldo(data.user) 
-                elif perintah == "buy_game" or perintah == "list_game" or perintah == "search_my_game" or perintah == "riwayat": 
+                elif perintah == "beli_game" or perintah == "gameku" or perintah == "cari_gameku" or perintah == "riwayat": 
                     print("Maaf, anda harus menjadi user untuk melakukan hal tersebut.")
                 else: 
                     print("Maaf, mohon masukkan input yang valid.")
                     print("BNMO dapat selalu membantumu dengan fitur 'help'!")
             elif role_user == "User":
-                if perintah == 'buy_game':
-                    temp_data = buy_game(id_user, data.game, data.riwayat, data.user, data.kepemilikan)
-                    data.game = temp_data[0]
-                    data.riwayat = temp_data[1]
-                    data.kepemilikan = temp_data[2]
-                elif perintah == "list_game":
+                if perintah == 'beli_game':
+                        temp_data = buy_game(id_user, data.game, data.riwayat, data.user, data.kepemilikan)
+                        if temp_data == None:
+                            pass
+                        else:
+                            data.game = temp_data[0]
+                            data.riwayat = temp_data[1]
+                            data.kepemilikan = temp_data[2]
+                elif perintah == "gameku":
                     melihat_gameku(id_user, data.riwayat, data.game)
-                elif perintah == "search_my_game":
-                    cek_id_game_dan_tahun_rilis(data.game, data.riwayat)
+                elif perintah == "cari_gameku":
+                    cek_id_game_dan_tahun_rilis(data.game, data.riwayat,data.kepemilikan,data.user,username)
                 elif perintah == "riwayat":
                     lihat_riwayat(data.riwayat, id_user)
                 elif perintah == "register" or perintah == "tambah_game" or perintah == "ubah_game" or perintah == "ubah_stok" or perintah == "topup":

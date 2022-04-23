@@ -30,12 +30,11 @@ def loading():
             break
 
 
-folder = 'Z_BMOframes'
-def animatedbmo(repeat = 2):
-    global folder
+folder_start = 'Z_BMOframes_Start'
+def animatedbmo_start(nama_folder, repeat = 1):
     filenames = []
-    for i in range(14):
-        filenames.append(f"Z_BMOframes/{i}.txt")
+    for i in range(23):
+        filenames.append(f"{nama_folder}/{i}.txt")
 
     frames = []
     for name in filenames:
@@ -45,7 +44,7 @@ def animatedbmo(repeat = 2):
     for i in range(repeat):
         for frame in frames:
             print("".join(frame))
-            time.sleep(0.1)
+            time.sleep(0.083)
 
     print('''
 ======================================================================================
@@ -57,3 +56,34 @@ def animatedbmo(repeat = 2):
 ======================================================================================
 
     ''')
+# control
+#animatedbmo_start(folder_start)
+
+folder_end = 'Z_BMOframes_End'
+def animatedbmo_end(nama_folder, repeat = 2):
+    filenames = []
+    for i in range(14):
+        filenames.append(f"{nama_folder}/{i}.txt")
+
+    frames = []
+    for name in filenames:
+        with open(name, "r", encoding="utf8") as f:
+            frames.append(f.readlines())
+
+    for i in range(repeat):
+        for frame in frames:
+            print("".join(frame))
+            time.sleep(0.083)
+
+    print('''
+======================================================================================
+
+                            █▀▀▄ █░░█ █▀▀ 　 █▀▀▄ █░░█ █▀▀ 　 ▄ ▄▀ 
+                            █▀▀▄ █▄▄█ █▀▀ 　 █▀▀▄ █▄▄█ █▀▀ 　 ░ █░ 
+                            ▀▀▀░ ▄▄▄█ ▀▀▀ 　 ▀▀▀░ ▄▄▄█ ▀▀▀ 　 ▀ ▀▄
+
+======================================================================================
+
+    ''')
+
+# animatedbmo_end(folder_end)
