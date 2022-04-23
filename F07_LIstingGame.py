@@ -6,6 +6,8 @@
 from A_CSVParser import *
 from A_Functions import *
 
+# Import buat testing
+import A_Data as data
 
 
 # ALGORITMA
@@ -82,19 +84,22 @@ def banding_2_kata(kata_satu, kata_dua):
             limit = panjang_kata_dua
 
         # Membandingkan sampai alphabetnya berbeda
-        for i in range(limit):
-            if ord(kata_dua[i]) < ord(kata_satu[i]):
+        for i in range(limit-1):
+            if ord(kata_dua[i]) == ord(kata_satu[i]):
+                urutan_beda = False
+            elif ord(kata_dua[i]) < ord(kata_satu[i]):
                 urutan_beda = True
                 break
-            else : urutan_beda = False
-        if i == limit-1 and length_manual(kata_dua) < length_manual(kata_satu):
-           urutan_beda = True
+            elif ord(kata_dua[i]) > ord(kata_satu[i]):
+                urutan_beda = False
+                break
+
     return urutan_beda
 
-def bandingkan_huruf(array, kolom_pilihan,skema):
+def bandingkan_huruf(array, kolom_pilihan, skema):
     panjang_array = length_manual(kolom_pilihan)
     for i in range(panjang_array):
-        for j in range(0, panjang_array-i-1):
+        for j in range(panjang_array-i-1):
 
             if skema[-1] == '+':
                 if banding_2_kata(kolom_pilihan[j], kolom_pilihan[j+1]):
@@ -133,7 +138,7 @@ def list_game_toko(data_game):
     elif 'stok' in skema:
         nama_kategori = "stok"
         tipe_data = "angka"
-    elif skema == '\n':
+    elif skema == '':
         nama_kategori = "id"
         skema = 'id+'
         tipe_data = "id"
@@ -184,6 +189,5 @@ def list_game_toko(data_game):
 
 # ------- CONTOH PENGGUNAAN -------
 # list_game_toko(data.game)
-# print(remove_manual(pilih_kolom(array, 'nama'),0))
 
-# print(bandingkan_huruf([['G001', 'A', 'A', '2000', '15', '1'], ['G004', 'D', 'D', '200033', '3', '20'], ['G003', 'C', 'C', '2000', '2', '10'], ['G002', 'B', 'B', '2000', '1', '5']], ['A','D','C','B'],'nama+'))
+# print(list_game_toko([['id', 'nama', 'kategori', 'tahunrilis', 'harga', 'stok'],['G001', 'Alisha', 'A', '2000', '15', '1'], ['G004', 'Dastin', 'D', '200033', '3', '20'], ['G003', 'Gibran', 'C', '2000', '2', '10'], ['G002', 'Devina', 'B', '2000', '1', '5']]))
