@@ -1,5 +1,6 @@
-# 13 April 2022
-# Catatan:
+# Program - F09
+# Program Melihat Gameku
+# Akses - User
 
 from A_Functions import *
 

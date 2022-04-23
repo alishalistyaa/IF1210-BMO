@@ -1,5 +1,6 @@
-# 13 April 2022
-# Catatan:
+# Program - F15 Load
+# Program mengembalikan data parser
+# Akses - Sistem
 
 # Mengimport module yang diperlukan
 import argparse

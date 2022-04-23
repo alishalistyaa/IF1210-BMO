@@ -1,5 +1,6 @@
-# Sabtu, 9 April 2022
-# Catatan: 
+# Program - F06 Mengubah Stok
+# Program Memerlukan File game.csv yang berisi data Game
+# Akses - Admin
 
 # Mengimport Fungsi dari direktori lain
 from A_CSVParser import *

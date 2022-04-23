@@ -7,6 +7,12 @@ from A_Functions import *
 
 # Membuat random number
 def randomnumber(minimum, maximum):
+    # KAMUS LOKAL
+    # now       : str
+    # rnd       : real
+    # randomnum : int
+
+    # ALGORITMA
     now = str(time.perf_counter())
     rnd = float(now[::-1][:3:])/10
     randomnum  = round(minimum+ rnd*(maximum-minimum))
@@ -14,6 +20,10 @@ def randomnumber(minimum, maximum):
 
 # Membuat kerang ajaib
 def kerangajaib():
+    # KAMUS LOKAL
+    # randomnum : int
+
+    # ALGORITMA
     # Bertanya
     pertanyaan = str(input("Mau tanya apa? "))
     # Memanggil fungsi Random Number

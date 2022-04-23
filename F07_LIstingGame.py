@@ -1,5 +1,6 @@
-# Sabtu, 9 April 2022
-# Catatan: 
+# Program - F07 Listing Game
+# Program Memerlukan File game.csv yang berisi data Game
+# Akses - Admin dan User
 
 # Mengimport Fungsi dari direktori lain
 from A_CSVParser import *

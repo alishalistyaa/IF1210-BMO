@@ -6,9 +6,7 @@
 from A_Functions import *
 
 # Definisi Fungsi lihat_riwayat untuk Melihat Riwayat Pembelian
-def lihat_riwayat(data_riwayat):
-    # Menginput user id user yang akan melihat riwayat pembelian
-    user_id = str(input('Masukan user id: '))
+def lihat_riwayat(data_riwayat, user_id):
 
     # Panjang data
     panjang_riwayat = length_manual(data_riwayat)

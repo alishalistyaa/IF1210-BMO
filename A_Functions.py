@@ -3,9 +3,7 @@
 # Karena ada beberapa fungsi yang tidak diperbolehkan,
 # Maka dibuat fungsi-fungsi ini untuk membantu
 
-# Membuat fungsi len() secara manual
-
-
+# Definisi Fungsi length_manual dengan Parameter variabel id game input
 def length_manual(list):
     # KAMUS LOKAL
     # list : list
@@ -19,10 +17,8 @@ def length_manual(list):
         length += 1
 
     return length
-
-# ------ CONTOH PENGGUNAAN --------
-# -> length_manual('aaaa')
-# -> 4
+# Memanggil Fungsi search_game_at_store()
+# search_game_at_store('database')
 
 # Membuat fungsi append() secara manual
 def append_manual(list_awal, item_baru):
@@ -90,6 +86,7 @@ def remove_manual(list_awal, index):
 
 # Membuat fungsi max
 def max_length(data,kolom):
+
     max = length_manual(data[0][kolom])
     for i in range(length_manual(data)):
         if length_manual(data[i][kolom])> max:

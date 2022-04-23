@@ -1,5 +1,6 @@
-# Selasa, 12 April 2022
-# Catatan : Prosedur ini adalah prosedur untuk memberikan panduan penggunaan sistem.
+# Program - F14 Help
+# Program Memerlukan file User yang berisi data user
+# Akses - Admin dan User
 
 from A_Functions import *
 

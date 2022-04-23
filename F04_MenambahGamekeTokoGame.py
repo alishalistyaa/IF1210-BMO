@@ -1,7 +1,8 @@
-# Senin, 18 April 2022
-# Catatan: 
+# Program - F04 Menambah Game ke Toko Game
+# Program Memerlukan File data.csv yang berisi data game
+# Akses - Admin
 
-# Mengimport Fungsi dari direktori lain
+# Mengimport Fungsi dari Direktori Lain
 from A_CSVParser import *
 from A_Functions import *
 

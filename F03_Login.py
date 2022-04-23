@@ -1,10 +1,13 @@
-# Senin, 18 April 2022
-# Catatan: 
+# Program - F03 Login
+# Program Memerlukan File user.csv yang berisi Data User
+# Akses - User dan Admin
 
-# Mengimport Fungsi dari direktori lain
+# Mengimport Fungsi dari Direktori Lain
 from A_CSVParser import CSV_Parser
 from A_Functions import *
+import A_Data as data
 from F02_Register import *
+from B01_Cipher import *
 
 
 def login(data_user):
@@ -17,6 +20,7 @@ def login(data_user):
     # Inisialisasi input
     username = input("Masukan username: ")
     password = input("Masukan password: ")
+    # password = dekripsi(data.PASSWORD_KEY, password_enkripsi)
     # Parsing CSV
 
     # Looping untuk username
@@ -33,9 +37,14 @@ def login(data_user):
             print("Halo {}! Selamat datang di “Binomo”.".format(nama))
 
         else:
-            return(print("Password atau username salah atau tidak ditemukan."))
+            id_user = 9999
+            print("Password atau username salah atau tidak ditemukan.")
+            return(id_user)
+
     else:
-        return(print("Password atau username salah atau tidak ditemukan."))
+        id_user = 9999
+        print("Password atau username salah atau tidak ditemukan.")
+        return(id_user)
     
     # jika username cocok, mengembalikan user_id
     return(id_user)

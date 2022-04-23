@@ -1,5 +1,6 @@
-# Tanggal
-# Catatan
+# Program - F05 Mengubah Game pada Toko
+# Program Memerlukan File game.csv yang berisi data Game
+# Akses - Admin
 
 # Mengimport fungsi dari direktori lain
 from A_CSVParser import *

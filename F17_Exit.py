@@ -1,5 +1,7 @@
-# 18 April 2022
-# Catatan:
+# Program - F17 Exit
+# Program Memerlukan File data.csv, riwayat.csv, user.csv, kepemilikan.csv 
+# yang berisi data User, Game, Riwayat dan Kepemilikan
+# Akses - User dan Admin
 
 # Mengimport library
 from F16_Save import *
