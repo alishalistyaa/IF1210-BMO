@@ -51,8 +51,10 @@ def register(data_user):
     while cek == False:
         username = input("Masukan username: ")
         if not (is_username_available(username, data_user)) and check_valid_username(username) :
-            password_enkripsi = input("Masukan password: ")
-            # password_enkripsi = enkripsi(data.PASSWORD_KEY, password_asli)
+            password_asli = input("Masukan password: ")
+
+            # Mengenkripsi password
+            password_enkripsi = enkripsi(str(password_asli), data.PASSWORD_KEY)
             print('Username {} telah berhasil register ke dalam "Binomo"'.format(username))
             cek = True
         elif (is_username_available(username,'database')):

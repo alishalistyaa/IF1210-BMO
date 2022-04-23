@@ -20,8 +20,6 @@ def login(data_user):
     # Inisialisasi input
     username = input("Masukan username: ")
     password = input("Masukan password: ")
-    # password = dekripsi(data.PASSWORD_KEY, password_enkripsi)
-    # Parsing CSV
 
     # Looping untuk username
     a = length_manual(data_user)
@@ -31,7 +29,7 @@ def login(data_user):
                 x = i
     # Mengecek apakah username cocok dengan password
     if is_username_available(username, data_user):
-        if password== data_user[x][3]:
+        if password == dekripsi(data_user[x][3], data.PASSWORD_KEY):
             nama = data_user[x][2]
             id_user = data_user[x][0]
             print("Halo {}! Selamat datang di “Binomo”.".format(nama))

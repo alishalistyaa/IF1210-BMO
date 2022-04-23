@@ -41,16 +41,14 @@ def enkripsi(password_asli, masukan_key):
         posisi_ascii = ord(password_asli[i])
         # Untuk huruf kapital, huruf kecil, dan angka
         if posisi_ascii >= 65 and posisi_ascii <=90:
-            huruf = (posisi_ascii + ord(key[i])) % 65
+            huruf = (posisi_ascii-65 + ord(key[i]))% 26 
             huruf += ord('A')
         elif posisi_ascii >= 97 and posisi_ascii <=122:
-            huruf = (posisi_ascii + ord(key[i])) % 97
+            huruf = (posisi_ascii-97 + ord(key[i])) % 26
             huruf += ord('a')    
         elif posisi_ascii >= 48 and posisi_ascii <=57:
-            huruf = (posisi_ascii + ord(key[i])) % 48
-            huruf += ord('0')  
-        else:
-            huruf += posisi_ascii  
+            huruf = (posisi_ascii-48 + ord(key[i])) % 10
+            huruf += ord('0')   
 
         temp = append_manual(temp, chr(huruf))
     # Mengubah temporary (list) menjadi string
@@ -76,16 +74,14 @@ def dekripsi(password_baru,masukan_key):
 
        # Untuk huruf kapital, huruf kecil, dan angka
         if posisi_ascii >= 65 and posisi_ascii <=90:
-            huruf = (posisi_ascii - ord(key[i])-65) % 26 +65
+            huruf = (posisi_ascii - ord(key[i])-65) % 26
             huruf += ord('A')
         elif posisi_ascii >= 97 and posisi_ascii <=122:
-            huruf = (posisi_ascii - ord(key[i])-97) % 26 +97
+            huruf = (posisi_ascii - ord(key[i])-97) % 26
             huruf += ord('a')    
         elif posisi_ascii >= 48 and posisi_ascii <=57:
-            huruf = (posisi_ascii - ord(key[i])-48) % 10 +48
+            huruf = (posisi_ascii - ord(key[i])-48) % 10
             huruf += ord('0') 
-        else:
-            huruf += posisi_ascii
 
         temp = append_manual(temp, chr(huruf))
     # Mengubah temporary (list) menjadi string
@@ -94,5 +90,5 @@ def dekripsi(password_baru,masukan_key):
     return(password_asli) 
 
 # ------- CONTOH PENGGUNAAN ----------
-#print(enkripsi("HELP",data.PASSWORD_KEY))
-# print(dekripsi("}DZa",data.PASSWORD_KEY))
+#print(enkripsi("alisha220303",data.PASSWORD_KEY))
+#print(dekripsi("567",data.PASSWORD_KEY))
