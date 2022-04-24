@@ -10,7 +10,7 @@ from A_Functions import *
 # Membuat fungsi buy_game
 def buy_game(id_user, data_game, data_riwayat, data_user, data_kepemilikan):
     # checking
-    valid = False
+    valid = True
 
     for i in range(length_manual(data_user)):
         if data_user[i][0] == id_user:
@@ -23,7 +23,7 @@ def buy_game(id_user, data_game, data_riwayat, data_user, data_kepemilikan):
     for i in range(1,length_manual(data_game)):
         if data_game[i][0] == id_game_input:
             nama_game = data_game[i][1]
-            if int(data_game[i][5]) < 0:
+            if int(data_game[i][5]) == 0:
                 print("Stok Game tersebut sedang habis!")
                 valid = False
                 break
@@ -31,7 +31,7 @@ def buy_game(id_user, data_game, data_riwayat, data_user, data_kepemilikan):
 
     # Anda sudah memiliki Game tersebut!
     if valid:
-        for i in range(1,length_manual(data_riwayat)):
+        for i in range(1,length_manual(data_riwayat)-1):
             if data_riwayat[i][3] == id_user and data_game[i][0] == id_game_input:
                 print("Anda sudah memiliki Game tersebut!")
                 valid = False

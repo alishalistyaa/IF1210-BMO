@@ -4,6 +4,7 @@
 
 # Mengimport Fungsi dari Direktori Lain
 from A_Functions import *
+from A_Pemanis import *
 
 
 # Definisi Fungsi id_user untuk memvalidasi username
@@ -38,6 +39,7 @@ def cek_id_game_dan_tahun_rilis(data_game,data_riwayat,data_kepemilikan,data_use
     # Input id game dan tahun game
     id_game_input = str(input('Masukkan ID Game: '))
     tahun_game_input = str(input('Masukkan Tahun Rilis Game: '))
+    loading()
     
     # Mengeluarkan Output Berupa Kalimat
     print('Daftar game pada inventory yang memenuhi kriteria:')

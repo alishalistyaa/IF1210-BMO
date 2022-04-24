@@ -54,4 +54,5 @@ def save(data_game, data_kepemilikan, data_riwayat, data_user):
 
     print("Saving...")
     print(f"Data telah disimpan pada folder {nama_folder}!")
+    return (nama_folder)
 

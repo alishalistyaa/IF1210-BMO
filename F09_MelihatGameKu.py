@@ -3,6 +3,7 @@
 # Akses - User
 
 from A_Functions import *
+from A_Pemanis import *
 
 def melihat_gameku(user_id, data_riwayat, data_game):
     # KAMUS LOKAL
@@ -11,6 +12,7 @@ def melihat_gameku(user_id, data_riwayat, data_game):
     # data_gameku : matrix hasil
 
     # Inisialisasi matrix dan array kosong
+    loading()
     data_gameku = []
     properti_game = []
 

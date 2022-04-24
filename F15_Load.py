@@ -9,7 +9,7 @@ import A_Data as data
 from A_CSVParser import *
 
 def cari_folder(nama_folder,path):
-    
+    # {Fungsi ini mencari folder pada direktori}
     if nama_folder == '':
         print(f'Tidak ada nama folder yang diberikan!')
         return(False)
@@ -23,6 +23,7 @@ def cari_folder(nama_folder,path):
             return(False)
 
 def load():
+    # Fungsi ini mengembalikan 
     # setup parser
     parser = argparse.ArgumentParser()
     parser.add_argument('nama_folder', help="Configuration Folder Name BNMO") #positional argument
@@ -42,8 +43,6 @@ def load():
         data.kepemilikan = CSV_Parser(path+'/kepemilikan.csv')
         data.riwayat = CSV_Parser(path+'/riwayat.csv')
 
-        print('\nLoading...')
-        print('Selamat datang di antarmuka "Binomo"!')
         return True
     else:
         return False

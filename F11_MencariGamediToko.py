@@ -4,6 +4,7 @@
 
 # Mengimport Fungsi dari Direktori Lain
 from A_Functions import *
+from A_Pemanis import *
 
 # Mendefinisikan Fungsi search_game_at_store()
 def search_game_at_store(data_game):
@@ -25,6 +26,7 @@ def search_game_at_store(data_game):
     tahun_rilis = str(input('Masukkan Tahun Rilis Game: '))
     
     # Mengeluarkan Ouput Kalimat Awal
+    loading()
     print('Daftar game pada toko yang memenuhi kriteria:')
 
     # Looping Sepanjang variabel panjang_game yang Merupakan Panjang Database Toko
@@ -35,6 +37,7 @@ def search_game_at_store(data_game):
             print(f'{nomor}. {id_game} | {nama_game} | {harga_game} | {genre_game} | {tahun_rilis} | {data_game[i][5]}')
             # Validasi bernilai True yang Menandakan Game Ada di Database Toko
             validasi = True
+            break
 
         # Jika Input Terdapat Beberapa yang Kosong Tetapi Input id game Sesuai Database Toko
         if id_game == data_game[i][0]: 
@@ -58,7 +61,7 @@ def search_game_at_store(data_game):
                             if id_game == '' and nama_game == '' and harga_game == '' and genre_game == '' and tahun_rilis == '':
                                 print(f'{nomor}. {data_game[i+1][0]} | {data_game[i+1][1]} | {data_game[i+1][4]} | {data_game[i+1][2]} | {data_game[i+1][3]} | {data_game[i+1][5]}')
                                 nomor += 1
-                                if i == 6:
+                                if i == panjang_game-2:
                                     # Validasi bernilai True yang Menandakan Game Ada di Database Toko
                                     validasi = True
                                     break

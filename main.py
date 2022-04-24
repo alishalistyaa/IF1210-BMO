@@ -48,12 +48,15 @@ def main():
                 help(0, data.user)
             elif perintah =='login':
                 id_user = login(data.user)
+                loading()
                 if id_user != 9999:
                     loggedin = True
                 else: print("Silahkan login kembali.")
             elif perintah == 'exit':
                 exit(data.game, data.kepemilikan, data.riwayat, data.user)
                 return()
+            else:
+                print("Maaf! Anda harus login terlebih dahulu untuk mengirim perintah selain login!")
         
         while loggedin:
             for i in range(length_manual(data.user)):
@@ -74,9 +77,11 @@ def main():
                 list_game_toko(data.game)
             elif perintah == "login":
                 id_user = login(data.user)
+                loading()
             elif perintah == "cari_game":
                 search_game_at_store(data.game)            
             elif perintah == "save":
+                loading()
                 save(data.game, data.kepemilikan, data.riwayat, data.user)
             elif perintah == "minigames":
                 print('''

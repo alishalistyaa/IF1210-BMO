@@ -13,8 +13,9 @@ def exit(data_game, data_kepemilikan, data_riwayat, data_user):
     while validasi == False:
         apakah_simpan = str(input("Apakah Anda mau melakukan penyimpanan file yang sudah diubah? (y/n) "))
         if apakah_simpan == 'Y' or apakah_simpan =='y':
+            nama_folder = save(data_game, data_kepemilikan, data_riwayat, data_user)
             animatedbmo_end(folder_end)
-            return(save(data_game, data_kepemilikan, data_riwayat, data_user))
+            return(print(f"Data telah disimpan pada folder {nama_folder}!"))
         elif apakah_simpan =='N' or apakah_simpan =='n':
             animatedbmo_end(folder_end)
             return(print("Keluar program tanpa menyimpan!"))

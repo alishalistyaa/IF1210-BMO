@@ -55,10 +55,10 @@ def register(data_user):
             password_asli = input("Masukan password: ")
 
             # Mengenkripsi password
-            password_enkripsi = enkripsi(str(password_asli), data.PASSWORD_KEY)
+            password_enkripsi = enkripsi(str(password_asli), str(data.PASSWORD_KEY))
             print('Username {} telah berhasil register ke dalam "BMO"'.format(username))
             cek = True
-        elif (is_username_available(username,'database')):
+        elif (is_username_available(username,data_user)):
             print('Usermane {} sudah terpakai, silahkan menggunakan username lain')
             cek == False
         else:
@@ -73,9 +73,10 @@ def register(data_user):
     saldo = str(0)
 
     # Baris data user
-    data = [id_user, username, nama, password_enkripsi, role, saldo]
+    datatemp = [id_user, username, nama, password_enkripsi, role, saldo]
     # Memasukkan data ke array csv
-    data_user = append_manual(data_user, data)
+    data_user = append_manual(data_user, datatemp)
+    password_enkripsi = ''
 
     return(data_user)
 
