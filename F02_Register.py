@@ -45,6 +45,7 @@ def is_username_available(username: str, data_user):
     
             
 def register(data_user):
+    global data
     nama = input("Masukan nama: ")
     
     cek = False
@@ -55,7 +56,7 @@ def register(data_user):
 
             # Mengenkripsi password
             password_enkripsi = enkripsi(str(password_asli), data.PASSWORD_KEY)
-            print('Username {} telah berhasil register ke dalam "Binomo"'.format(username))
+            print('Username {} telah berhasil register ke dalam "BMO"'.format(username))
             cek = True
         elif (is_username_available(username,'database')):
             print('Usermane {} sudah terpakai, silahkan menggunakan username lain')

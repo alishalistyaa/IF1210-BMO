@@ -17,7 +17,7 @@ def exit(data_game, data_kepemilikan, data_riwayat, data_user):
             return(save(data_game, data_kepemilikan, data_riwayat, data_user))
         elif apakah_simpan =='N' or apakah_simpan =='n':
             animatedbmo_end(folder_end)
-            return(print("Keluar file tanpa menyimpan!"))
+            return(print("Keluar program tanpa menyimpan!"))
         else: validasi = False
 
 # ------ CONTOH PENGGUNAAN -------

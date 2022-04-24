@@ -39,8 +39,9 @@ def main():
     else:
         animatedbmo_start(folder_start)
         loggedin = False
-
-        print("Jangan lupa! BNMO akan selalu membantumu dengan mengetik 'help'!")
+        print('\nLoading...')
+        print('Selamat datang di antarmuka "Binomo"!')
+        print("\nJangan lupa! BNMO akan selalu membantumu dengan mengetik 'help'!")
         while not loggedin:
             perintah = str(input("\n>>> ")).lower()
             if perintah == 'help':

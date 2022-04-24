@@ -39,7 +39,7 @@ def topup_saldo(data_user):
                 if (int(saldo_topup) + int(data_user[i][5])) < 0:
                     saldo_sekarang = int(data_user[i][5])
                     print('Masukan tidak valid')
-                    break
+                    return(data_user)
             validasi = True
 
     # Jika Validasi Bernilai Tidak True yaitu Username Input tidak ada yang sesuai
@@ -52,7 +52,7 @@ def topup_saldo(data_user):
         if data_user[i][1] == username_input :
             (data_user[i][5]) = str(saldo_sekarang)
             
-    return(data_user)
+        return(data_user)
 
 # Mengeluarkan Output Fungsi topup_saldo
 #print(topup_saldo('database'))

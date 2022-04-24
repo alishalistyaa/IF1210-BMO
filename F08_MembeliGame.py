@@ -5,9 +5,7 @@
 # Akses - User
 
 # Mengimport Fungsi dari direktori lain
-from A_CSVParser import *
 from A_Functions import *
-from F02_Register import *
 
 # Membuat fungsi buy_game
 def buy_game(id_user, data_game, data_riwayat, data_user, data_kepemilikan):

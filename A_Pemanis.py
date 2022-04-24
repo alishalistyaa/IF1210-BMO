@@ -27,6 +27,7 @@ def loading():
         time.sleep(.1)
         i += 1
         if i == 30:
+            print('\n')
             break
 
 

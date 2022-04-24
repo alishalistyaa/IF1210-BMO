@@ -3,7 +3,6 @@
 # Akses - Admin
 
 # Mengimport Fungsi dari direktori lain
-from A_CSVParser import *
 from A_Functions import *
 
 def ubah_stok(data_game):

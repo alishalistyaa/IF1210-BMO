@@ -3,7 +3,6 @@
 # Akses - User dan Admin
 
 # Mengimport Fungsi dari Direktori Lain
-from A_CSVParser import CSV_Parser
 from A_Functions import *
 import A_Data as data
 from F02_Register import *
@@ -32,7 +31,7 @@ def login(data_user):
         if password == dekripsi(data_user[x][3], data.PASSWORD_KEY):
             nama = data_user[x][2]
             id_user = data_user[x][0]
-            print("Halo {}! Selamat datang di “Binomo”.".format(nama))
+            print("Halo {}! Selamat datang di BMO.".format(nama))
 
         else:
             id_user = 9999
